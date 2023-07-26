@@ -3,6 +3,7 @@ import MyRestaurants from "../apis/MyRestaurants";
 import { RestaurantsContext } from "../context/restaurants-context";
 
 function AddRestaurant() {
+  // I am using a controlled form utilizing the useState hooks to add my restaurants.
   const [name, setName] = useState("");
   const [location, setLocation] = useState("");
   const [priceRange, setPriceRange] = useState("Price Range");
@@ -26,6 +27,7 @@ function AddRestaurant() {
     setPriceRange("Price Range");
   };
   return (
+    // I am using Bootstrap. I will write my own css in the next phase of the development.
     <div className="mb-4">
       <form action="">
         <div className="row">

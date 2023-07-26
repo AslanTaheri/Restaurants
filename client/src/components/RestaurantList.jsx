@@ -45,6 +45,7 @@ function RestaurantList() {
   };
 
   return (
+    // I am using Bootstrap. I will write my own css in the next phase of the development.
     <div className="list-goup">
       <table className="table table-hover table-dark">
         <thead>
