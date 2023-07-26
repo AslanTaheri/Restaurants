@@ -2,7 +2,6 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const db = require("./db");
-// import db from "./db/index.js" // I had to use the "require";
 const app = express();
 
 const port = process.env.PORT || 3000;
@@ -43,7 +42,7 @@ app.get("/api/v1/restaurants/:id", async (req, res) => {
     res.status(200).json({
       satus: "success",
       data: {
-        restaurants: restaurant.rows[0], // if you don't specify [0], it will return an object WITHIN an array instead of just an object.
+        restaurants: restaurant.rows[0], // if I don't specify [0], it will return an object WITHIN an array instead of just an object.
         reviews: reviews.rows,
       },
     });

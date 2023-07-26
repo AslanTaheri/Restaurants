@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import MyRestaurants from "../apis/MyRestaurants";
 import { useParams } from "react-router-dom";
 
+// the add review part is still a work in peogress.
 const AddReview = () => {
   const { id } = useParams();
 
@@ -28,6 +29,7 @@ const AddReview = () => {
   };
 
   return (
+    // I am using Bootstrap. I will write my own css in the next phase of the development.
     <div className="mb-3">
       <form action="">
         <div className="row">
