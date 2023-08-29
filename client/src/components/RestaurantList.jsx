@@ -46,7 +46,7 @@ function RestaurantList() {
 
   return (
     // I am using Bootstrap. I will write my own css in the next phase of the development.
-    <div className="list-goup">
+    <div className="list-goup py-4">
       <table className="table table-hover table-dark">
         <thead>
           <tr className="bg-primary">

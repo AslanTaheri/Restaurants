@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import MyRestaurants from "../apis/MyRestaurants";
 import { RestaurantsContext } from "../context/restaurants-context";
@@ -21,7 +21,7 @@ const RestaurantDetailPage = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [selectedRestaurant]);
   return (
     <>
       <div>

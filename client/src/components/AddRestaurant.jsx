@@ -28,7 +28,7 @@ function AddRestaurant() {
   };
   return (
     // I am using Bootstrap. I will write my own css in the next phase of the development.
-    <div className="mb-4">
+    <div className="m-4">
       <form action="">
         <div className="row">
           <div className="col">

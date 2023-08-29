@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import MyRestaurants from "../apis/MyRestaurants";
-import { useParams } from "react-router-dom";
+import { useParams, Navigate, useNavigate, redirect } from "react-router-dom";
 
 // the add review part is still a work in peogress.
 const AddReview = () => {
   const { id } = useParams();
-
+  const navigate = useNavigate();
   // constrolled form data
   const [name, setName] = useState("");
   const [rating, setRating] = useState("Rating");
@@ -26,6 +26,7 @@ const AddReview = () => {
     setName("");
     setRating("Rating");
     setReviewText("");
+    // redirect(`/restaurants/${id}`);
   };
 
   return (
@@ -74,8 +75,13 @@ const AddReview = () => {
             value={reviewText}
             onChange={(e) => setReviewText(e.target.value)}></textarea>
         </div>
-        <button className="btn btn-primary" onClick={handleSubmit}>
+        <button className="btn btn-primary px-3" onClick={handleSubmit}>
           Submit
+        </button>
+        <button
+          className="btn btn-primary px-3 mx-3"
+          onClick={() => navigate("/")}>
+          Back
         </button>
       </form>
     </div>
