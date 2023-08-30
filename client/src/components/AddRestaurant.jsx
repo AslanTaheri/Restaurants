@@ -29,7 +29,7 @@ function AddRestaurant() {
   return (
     <div className=" ">
       <form>
-        <div className="flex flex-col sm:flex-row gap-2 mx-auto my-8 bg-slate-300 rounded-lg p-4 justify-between">
+        <div className="flex flex-col sm:flex-row gap-2 mx-auto my-8 bg-[#1a00fd] rounded-lg p-4 justify-between">
           <input
             type="text"
             className="px-2 rounded-lg border border-black"

@@ -48,8 +48,8 @@ function RestaurantList() {
   };
 
   return (
-    <div className="mx-auto my-8 bg-slate-300 rounded-lg p-2">
-      <div className="grid grid-cols-[1fr,1fr,.5fr,.5fr,.1fr,.1fr] gap-4 font-bold text-sm md:text-base p-2 items-center justify-items-center">
+    <div className="mx-auto my-8 bg-[#1a00fd] rounded-lg p-2">
+      <div className="grid grid-cols-[1fr,1fr,.5fr,.5fr,.1fr,.1fr] gap-4 font-bold text-white text-sm md:text-base p-2 items-center justify-items-center">
         <p>Restaurant</p>
         <p>Location</p>
         <p>Price</p>
@@ -64,7 +64,7 @@ function RestaurantList() {
             return (
               <div
                 className={`grid grid-cols-[1fr,1fr,.3fr,.3fr,.1fr,.1fr] text-sm md:text-base gap-4 space-y-2 my-2 p-2 rounded-lg items-center justify-items-center ${
-                  index % 2 === 0 ? "bg-gray-100" : "bg-white"
+                  index % 2 === 0 ? "bg-gray-200" : "bg-white"
                 }`}
                 onClick={() => handleSelectRestaurant(restaurant.id)}
                 key={restaurant.id}
