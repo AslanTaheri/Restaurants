@@ -27,44 +27,40 @@ function AddRestaurant() {
     setPriceRange("Price Range");
   };
   return (
-    // I am using Bootstrap. I will write my own css in the next phase of the development.
-    <div className="m-4">
-      <form action="">
-        <div className="row">
-          <div className="col">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </div>
-          <div className="col">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Location"
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-            />
-          </div>
-          <div className="col">
-            <select
-              className="custom-select my-1 mr-sm-2"
-              value={priceRange}
-              onChange={(e) => setPriceRange(e.target.value)}>
-              <option disabled>Price Range</option>
-              <option value="1">$</option>
-              <option value="2">$$</option>
-              <option value="3">$$$</option>
-              <option value="4">$$$$</option>
-              <option value="5">$$$$$</option>
-            </select>
-          </div>
+    <div className=" ">
+      <form>
+        <div className="flex flex-col sm:flex-row gap-2 mx-auto my-8 bg-slate-300 rounded-lg p-4 justify-between">
+          <input
+            type="text"
+            className="px-2 rounded-lg border border-black"
+            placeholder="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+
+          <input
+            type="text"
+            className="px-2 rounded-lg border border-black"
+            placeholder="Location"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+          />
+
+          <select
+            className="px-2 rounded-lg border border-black"
+            value={priceRange}
+            onChange={(e) => setPriceRange(e.target.value)}>
+            <option disabled>Price Range</option>
+            <option value="1">$</option>
+            <option value="2">$$</option>
+            <option value="3">$$$</option>
+            <option value="4">$$$$</option>
+            <option value="5">$$$$$</option>
+          </select>
+
           <button
             type="submit"
-            className="col btn btn-primary"
+            className="bg-white outline outline-1 shadow-lg rounded-lg px-4"
             onClick={submitHandler}>
             Add
           </button>

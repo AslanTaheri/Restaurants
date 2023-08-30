@@ -4,11 +4,11 @@ import RestaurantList from "../components/RestaurantList";
 
 const Home = () => {
   return (
-    <>
+    <div className="container p-6 mx-auto bg-slate-100">
       <Header />
       <AddRestaurant />
       <RestaurantList />
-    </>
+    </div>
   );
 };
 

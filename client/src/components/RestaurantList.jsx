@@ -1,4 +1,7 @@
-import React, { useContext, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPenToSquare, faTrashCan } from "@fortawesome/free-solid-svg-icons";
+
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import MyRestaurants from "../apis/MyRestaurants";
@@ -45,50 +48,51 @@ function RestaurantList() {
   };
 
   return (
-    // I am using Bootstrap. I will write my own css in the next phase of the development.
-    <div className="list-goup py-4">
-      <table className="table table-hover table-dark">
-        <thead>
-          <tr className="bg-primary">
-            <th scope="col">Restaurant</th>
-            <th scope="col">Location</th>
-            <th scope="col">Price Range</th>
-            <th scope="col">Ratings</th>
-            <th scope="col">Edit</th>
-            <th scope="col">Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          {restaurants &&
-            restaurants.map((restaurant) => {
-              return (
-                <tr
-                  onClick={() => handleSelectRestaurant(restaurant.id)}
-                  key={restaurant.id}
-                  role="button">
-                  <td>{restaurant.name}</td>
-                  <td>{restaurant.location}</td>
-                  <td>{"$".repeat(restaurant.price_range)}</td>
-                  <td>Reviews</td>
-                  <td>
-                    <button
-                      onClick={(e) => handleUpdate(e, restaurant.id)}
-                      className="btn btn-warning">
-                      Update
-                    </button>
-                  </td>
-                  <td>
-                    <button
-                      className="btn btn-danger"
-                      onClick={(e) => handleDelete(e, restaurant.id)}>
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              );
-            })}
-        </tbody>
-      </table>
+    <div className="mx-auto my-8 bg-slate-300 rounded-lg p-2">
+      <div className="grid grid-cols-[1fr,1fr,.5fr,.5fr,.1fr,.1fr] gap-4 font-bold text-sm md:text-base p-2 items-center justify-items-center">
+        <p>Restaurant</p>
+        <p>Location</p>
+        <p>Price</p>
+        <p>Ratings</p>
+        {/* <div className="" /> */}
+        <p className="col-span-2"></p>
+        {/* <p>Delete</p> */}
+      </div>
+      <div>
+        {restaurants &&
+          restaurants.map((restaurant, index) => {
+            return (
+              <div
+                className={`grid grid-cols-[1fr,1fr,.3fr,.3fr,.1fr,.1fr] text-sm md:text-base gap-4 space-y-2 my-2 p-2 rounded-lg items-center justify-items-center ${
+                  index % 2 === 0 ? "bg-gray-100" : "bg-white"
+                }`}
+                onClick={() => handleSelectRestaurant(restaurant.id)}
+                key={restaurant.id}
+                role="button">
+                <p className="font-semibold justify-self-start outline outline-1 shadow-lg rounded-lg px-2">
+                  {restaurant.name}
+                </p>
+                <p>{restaurant.location}</p>
+                <p className="text-amber-400 font-semibold">
+                  {"$".repeat(restaurant.price_range)}
+                </p>
+                <p>Reviews</p>
+
+                <FontAwesomeIcon
+                  icon={faPenToSquare}
+                  style={{ color: "#2fa280" }}
+                  onClick={handleUpdate}
+                />
+
+                <FontAwesomeIcon
+                  icon={faTrashCan}
+                  style={{ color: "#d63d3d" }}
+                  onClick={handleDelete}
+                />
+              </div>
+            );
+          })}
+      </div>
     </div>
   );
 }
