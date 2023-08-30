@@ -1,3 +1,5 @@
+# Local Netlify folder
+.netlify
 # Logs
 logs
 *.log
@@ -22,3 +24,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Keys
+.env
