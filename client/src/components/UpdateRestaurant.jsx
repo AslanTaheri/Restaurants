@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import MyRestaurants from "../apis/MyRestaurants";
 
@@ -9,7 +9,7 @@ const UpdateRestaurant = () => {
   const [location, setLocation] = useState("");
   const [priceRange, setPriceRange] = useState("");
 
-  //   const { restaurants, setRestaurants } = useContext(RestaurantsContext); // Do not use the context api because it causes and error if user directly navigates to this page.
+  //   const { restaurants, setRestaurants } = useContext(RestaurantsContext); // Not using the context api because it causes and error if user directly navigates to this page.
   // instead, just fetch the data related to this specific restaurant id :)
 
   useEffect(() => {

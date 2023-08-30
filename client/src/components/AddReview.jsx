@@ -1,11 +1,12 @@
 import { useState } from "react";
 import MyRestaurants from "../apis/MyRestaurants";
-import { useParams, Navigate, useNavigate, redirect } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 // the add review part is still a work in peogress.
 const AddReview = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
+  // const history = useHistory();
+  // const location = useLocation();
   // constrolled form data
   const [name, setName] = useState("");
   const [rating, setRating] = useState("Rating");
@@ -20,6 +21,8 @@ const AddReview = () => {
         rating,
         review: reviewText,
       });
+      // history.push("/");
+      // history.push(location.pathname);
     } catch (err) {
       console.log(err);
     }
@@ -30,7 +33,6 @@ const AddReview = () => {
   };
 
   return (
-    // I am using Bootstrap. I will write my own css in the next phase of the development.
     <div className="mb-3">
       <form action="">
         <div className="row">

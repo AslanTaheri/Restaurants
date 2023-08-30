@@ -4,33 +4,36 @@ const cors = require("cors");
 const db = require("./db");
 const app = express();
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5001;
 
 app.use(cors());
 app.use(express.json());
 
-// retrieve all restaurants reviews
+// retrieve all restaurants reviews and average rating
 app.get("/api/v1/restaurants", async (req, res) => {
   try {
-    const result = await db.query("SELECT * FROM restaurants");
+    const restaurantData = await db.query(
+      "SELECT * FROM restaurants LEFT JOIN (SELECT restaurant_id, COUNT(*), TRUNC(AVG(rating),1) AS avg_rating FROM reviews GROUP BY restaurant_id) reviews ON restaurants.id = reviews.restaurant_id;"
+    );
 
     res.status(200).json({
       satus: "success",
-      result: result.rowCount,
+      result: restaurantData.rowCount,
       data: {
-        restaurants: result.rows,
+        restaurants: restaurantData.rows,
       },
     });
   } catch (err) {
     console.log(err);
   }
+  console.log(restaurantData);
 });
 
 // retireve a specific restaurant review
 app.get("/api/v1/restaurants/:id", async (req, res) => {
   try {
     const restaurant = await db.query(
-      "SELECT * FROM restaurants WHERE id = $1",
+      "SELECT * FROM restaurants LEFT JOIN (SELECT restaurant_id, COUNT(*), TRUNC(AVG(rating),1) AS avg_rating FROM reviews GROUP BY restaurant_id) reviews ON restaurants.id = reviews.restaurant_id WHERE id = $1",
       [req.params.id]
     );
 

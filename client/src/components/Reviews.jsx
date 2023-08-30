@@ -3,7 +3,6 @@ import StarRating from "./StarRating";
 const Reviews = (props) => {
   const reviews = props.reviews.map((review) => {
     return (
-      // I am using Bootstrap. I will write my own css in the next phase of the development.
       <div
         className="card text-bg-primary m-3 "
         style={{ maxWidth: "30%" }}

@@ -4,6 +4,7 @@ import MyRestaurants from "../apis/MyRestaurants";
 import { RestaurantsContext } from "../context/restaurants-context";
 import Reviews from "../components/Reviews";
 import AddReview from "../components/AddReview";
+import StarRating from "../components/StarRating";
 
 const RestaurantDetailPage = () => {
   let { id } = useParams();
@@ -28,6 +29,7 @@ const RestaurantDetailPage = () => {
         {selectedRestaurant && (
           <>
             <h1 className="">{selectedRestaurant.restaurants.name}</h1>
+            {/* <StarRating rating={} /> */}
 
             <div className="">
               <Reviews reviews={selectedRestaurant.reviews} />
