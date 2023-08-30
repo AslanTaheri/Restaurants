@@ -26,7 +26,6 @@ app.get("/api/v1/restaurants", async (req, res) => {
   } catch (err) {
     console.log(err);
   }
-  console.log(restaurantData);
 });
 
 // retireve a specific restaurant review

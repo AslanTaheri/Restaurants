@@ -25,13 +25,17 @@ const RestaurantDetailPage = () => {
   }, [selectedRestaurant]);
   return (
     <>
-      <div>
+      <div className="container flex flex-col p-6 mx-auto space-y-8 bg-slate-100">
         {selectedRestaurant && (
           <>
-            <h1 className="">{selectedRestaurant.restaurants.name}</h1>
-            {/* <StarRating rating={} /> */}
+            <section className="text-center">
+              <h1 className="text-lg font-bold">
+                {selectedRestaurant.restaurants.name}
+              </h1>
+              <StarRating rating={selectedRestaurant.restaurants.avg_rating} />
+            </section>
 
-            <div className="">
+            <div>
               <Reviews reviews={selectedRestaurant.reviews} />
             </div>
             <AddReview />

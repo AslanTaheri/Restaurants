@@ -1,10 +1,11 @@
 import { useState } from "react";
 import MyRestaurants from "../apis/MyRestaurants";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 // the add review part is still a work in peogress.
 const AddReview = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   // const history = useHistory();
   // const location = useLocation();
   // constrolled form data
@@ -33,58 +34,56 @@ const AddReview = () => {
   };
 
   return (
-    <div className="mb-3">
-      <form action="">
-        <div className="row">
-          <div className="form-group col-8">
-            <label htmlFor="name" className="form-label">
-              Name:
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="name"
-              placeholder="Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </div>
-          <div className="col-4">
-            <label htmlFor="rating" className="form-label">
-              Rating:
-            </label>
-            <select
-              id="rating"
-              className="form-select"
-              value={rating}
-              onChange={(e) => setRating(e.target.value)}>
-              <option disabled>Rating</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-          </div>
-        </div>
-        <div className="mb-3">
-          <label htmlFor="review" className="form-label">
-            Review:
-          </label>
-          <textarea
-            id="review"
-            className="form-control"
-            value={reviewText}
-            onChange={(e) => setReviewText(e.target.value)}></textarea>
-        </div>
-        <button className="btn btn-primary px-3" onClick={handleSubmit}>
-          Submit
-        </button>
-        <button
-          className="btn btn-primary px-3 mx-3"
-          onClick={() => navigate("/")}>
-          Back
-        </button>
+    <div className="bg-slate-200 rounded-lg">
+      <form className="flex flex-col gap-4 p-4">
+        <label htmlFor="name" className="">
+          Name:
+        </label>
+        <input
+          type="text"
+          className="rounded-lg p-2"
+          id="name"
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+
+        <label htmlFor="rating" className="">
+          Rating:
+        </label>
+        <select
+          id="rating"
+          className="rounded-lg p-2"
+          value={rating}
+          onChange={(e) => setRating(e.target.value)}>
+          <option disabled>Rating</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+
+        <label htmlFor="review" className="">
+          Review:
+        </label>
+        <textarea
+          id="review"
+          className="rounded-lg py-4"
+          value={reviewText}
+          onChange={(e) => setReviewText(e.target.value)}></textarea>
+        <section className="space-x-6">
+          <button
+            className="outline outline-1 rounded-lg p-1 shadow-lg"
+            onClick={handleSubmit}>
+            Submit
+          </button>
+          <button
+            className="outline outline-1 rounded-lg p-1 shadow-lg"
+            onClick={() => navigate("/")}>
+            Back
+          </button>
+        </section>
       </form>
     </div>
   );

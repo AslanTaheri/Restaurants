@@ -24,10 +24,11 @@ function RestaurantList() {
     };
     fetchData(); // making sure I run the function, not just defining it! It took me some time to debug this.
   }, []); // adding restaurants as a dependency here causes an infinite loop!
-  console.log(restaurants);
+
   const handleUpdate = (e, id) => {
     e.stopPropagation();
-    navigate(`restaurants/${id}/update`);
+    // navigate(`restaurants/${id}/update`);
+    navigate(`restaurants/${id}`);
   };
 
   const handleDelete = async (e, id) => {
@@ -54,8 +55,8 @@ function RestaurantList() {
     }
     return (
       <>
-        <StarRating rating={restaurants.id} />
-        <span>({restaurants.count}votes)</span>
+        <StarRating rating={restaurant.avg_rating} />
+        <span>({restaurant.count}votes)</span>
       </>
     );
   };
@@ -83,17 +84,15 @@ function RestaurantList() {
                   {restaurant.name}
                 </p>
                 <p>{restaurant.location}</p>
-                <p className="text-amber-400 font-semibold">
-                  {"$".repeat(restaurant.price_range)}
-                </p>
+                <p className="">{"$".repeat(restaurant.price_range)}</p>
                 <div className="flex items-center gap-3">
-                  <div>{renderRating(restaurant)}</div>
+                  <div className="">{renderRating(restaurant)}</div>
 
                   <FontAwesomeIcon
                     className=""
                     icon={faPenToSquare}
                     style={{ color: "#2fa280" }}
-                    onClick={handleUpdate}
+                    onClick={(e) => handleUpdate(e, restaurant.id)}
                   />
                 </div>
 

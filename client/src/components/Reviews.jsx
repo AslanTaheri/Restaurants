@@ -4,23 +4,19 @@ const Reviews = (props) => {
   const reviews = props.reviews.map((review) => {
     return (
       <div
-        className="card text-bg-primary m-3 "
-        style={{ maxWidth: "30%" }}
+        className="flex flex-col my-4 p-4 bg-[#1a00fd] text-white rounded-lg"
+        // style={{ maxWidth: "30%" }}
         key={review.id}>
-        <div className="card-header d-flex justify-content-between">
-          <span>{review.name}</span>
-          <span>
-            <StarRating rating={review.rating} />
-          </span>
+        <div className="flex items-center pb-2 border-b">
+          <h2 className="font-semibold mr-4">{review.name}</h2>
+          <StarRating rating={review.rating} />
         </div>
 
-        <div className="card-body">
-          <p className="card-text">{review.review}</p>
-        </div>
+        <p className="my-2">{review.review}</p>
       </div>
     );
   });
-  return <div className="row ">{reviews}</div>;
+  return <div className="">{reviews}</div>;
 };
 
 export default Reviews;

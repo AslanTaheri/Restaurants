@@ -42,7 +42,6 @@ const UpdateRestaurant = () => {
   };
 
   return (
-    // I am using Bootstrap. I will write my own css in the next phase of the development.
     <>
       <form action="">
         <div className="my-3 form-group">
