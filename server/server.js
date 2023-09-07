@@ -124,6 +124,19 @@ app.post("/api/v1/restaurants/:id/addReview", async (req, res) => {
   }
 });
 
+// Database shutdown on application exit
+process.on("SIGINT", async () => {
+  console.log("Received SIGINT signal. Closing database connection pool...");
+  try {
+    await db.end(); // Close the connection pool
+    console.log("Database connection pool closed. Exiting...");
+    process.exit();
+  } catch (err) {
+    console.error("Error closing database connection pool:", err);
+    process.exit(1); // Exiting with a non-zero code to indicate an error
+  }
+});
+
 app.listen(port, () => {
   console.log(`server running on port ${port}`);
 });
