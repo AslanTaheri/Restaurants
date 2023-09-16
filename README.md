@@ -1,11 +1,17 @@
-# Restaurants V1.0.0
+# 🍽 Restaurants V1.0.0
 
-**This is a work in progress.** A full stack prototype for writing a review for my favorite restaurants. 
-I made this project as an opportunity to practice setting up a full stack PERN application, 
-building a REST API, and connecting it to the front-end interface using React for seamless CRUD operations. As my build tool I used Vite, which gives me a faster and lighter set up compared to the create-react-app.
+A full-stack application that provides a minimal yet quick way to share and review your favorite food spots with friends and family. I wrote the backend of this project with Node.js, Express and PostgreSQL to run the CRUD operations. The Express REST API and PostgreSQL database are deployed on Render.com serving the React frontend deployed on Netlify.
 
-I am currently learning Typescript and as the next step, I would like to re-construct this project in a type-safe fashion
-both on the backend and frontend using Typescript.
+# Tech Stack
+- Node.js
+- Express
+- PostgreSQL
+- React
+- TailwindCSS
+- Vite
+- Frontend deployed on Netflify
+- Backend deployed on Render
 
-Technologies used:
-PostgreSQL, PG, Express, Node, React, Bootstrap, Vite
+# 💡 View Live
+
+[myrestaurantsapp.netlify.app](https://myrestaurantsapp.netlify.app/)
